@@ -1,0 +1,11 @@
+app = "wg-sydney"
+primary_region = "syd"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[services]]
+  internal_port = 51820
+  protocol = "udp"
+  [[services.ports]]
+    port = 51820
