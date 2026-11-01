@@ -1,7 +1,6 @@
-FROM alpine:3.19
-RUN apk add --no-cache wireguard-tools iptables bash
+FROM ubuntu:22.04
+RUN apt-get update && apt-get install -y wireguard iptables curl
 COPY start.sh /start.sh
-COPY server_wg0.conf /etc/wireguard/wg0.conf
 RUN chmod +x /start.sh
 EXPOSE 51820/udp
-ENTRYPOINT ["/start.sh"]
+CMD ["/start.sh"]
